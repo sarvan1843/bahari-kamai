@@ -18,15 +18,15 @@ export default async function handler(req, res) {
         let pk = (process.env.FIREBASE_PRIVATE_KEY || '').trim();
         pk = pk.replace(/^["']|["']$/g, ''); // Remove surrounding quotes
         pk = pk.replace(/\\n/g, '\n'); // Replace literal \n
+        pk = pk.replace(/\r/g, ''); // Remove Windows carriage returns
         
-        // If it got squashed into a single line by Vercel UI paste
-        if (pk && !pk.includes('\n')) {
-          const match = pk.match(/-----BEGIN PRIVATE KEY-----(.*)-----END PRIVATE KEY-----/);
-          if (match) {
-            const base64 = match[1].replace(/\s/g, ''); // remove all spaces
-            const chunks = base64.match(/.{1,64}/g) || []; // break into 64-char lines
-            pk = `-----BEGIN PRIVATE KEY-----\n${chunks.join('\n')}\n-----END PRIVATE KEY-----\n`;
-          }
+        // Forcibly reconstruct the PEM to ensure exact 64-char lines and perfect formatting
+        // The /s flag allows .* to match newlines
+        const match = pk.match(/-----BEGIN PRIVATE KEY-----(.*)-----END PRIVATE KEY-----/s);
+        if (match) {
+          const base64 = match[1].replace(/\s/g, ''); // remove all whitespace
+          const chunks = base64.match(/.{1,64}/g) || []; // break into 64-char lines
+          pk = `-----BEGIN PRIVATE KEY-----\n${chunks.join('\n')}\n-----END PRIVATE KEY-----\n`;
         }
         
         initializeApp({
