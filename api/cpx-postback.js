@@ -14,23 +14,19 @@ export default async function handler(req, res) {
   try {
     if (!db) {
       if (!getApps().length) {
-        // Strip out literal quotes if Vercel added them during paste, accounting for whitespace
+        // Bulletproof parsing of Firebase Private Key
         let pk = (process.env.FIREBASE_PRIVATE_KEY || '').trim();
-        if (pk.startsWith('"') && pk.endsWith('"')) {
-          pk = pk.substring(1, pk.length - 1);
-        } else if (pk.startsWith("'") && pk.endsWith("'")) {
-          pk = pk.substring(1, pk.length - 1);
-        }
+        pk = pk.replace(/^["']|["']$/g, ''); // Remove surrounding quotes
+        pk = pk.replace(/\\n/g, '\n'); // Replace literal \n
         
-        // Sometimes Vercel parses \n literally, sometimes it doesn't. 
-        // We ensure all literal \n are converted to real newlines.
-        pk = pk.replace(/\\n/g, '\n');
-        
-        // If the user pasted into a single-line box, newlines might be spaces
-        if (!pk.includes('\n')) {
-          pk = pk.replace(/ /g, '\n');
-          pk = pk.replace('-----\nBEGIN\nPRIVATE\nKEY-----', '-----BEGIN PRIVATE KEY-----');
-          pk = pk.replace('-----\nEND\nPRIVATE\nKEY-----', '-----END PRIVATE KEY-----');
+        // If it got squashed into a single line by Vercel UI paste
+        if (pk && !pk.includes('\n')) {
+          const match = pk.match(/-----BEGIN PRIVATE KEY-----(.*)-----END PRIVATE KEY-----/);
+          if (match) {
+            const base64 = match[1].replace(/\s/g, ''); // remove all spaces
+            const chunks = base64.match(/.{1,64}/g) || []; // break into 64-char lines
+            pk = `-----BEGIN PRIVATE KEY-----\n${chunks.join('\n')}\n-----END PRIVATE KEY-----\n`;
+          }
         }
         
         initializeApp({
