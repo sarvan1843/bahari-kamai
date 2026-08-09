@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SaffronEarn - Survey Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#dbc2b0",
+                        "secondary": "#056e00",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-secondary-container": "#067500",
+                        "on-primary-fixed-variant": "#6d3a00",
+                        "on-tertiary-container": "#514300",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-primary-fixed": "#2e1500",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#8f4e00",
+                        "on-secondary-fixed-variant": "#035300",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e7e8e9",
+                        "background": "#f8f9fa",
+                        "primary-fixed": "#ffdcc2",
+                        "surface-container-low": "#f3f4f5",
+                        "surface": "#f8f9fa",
+                        "surface-dim": "#d9dadb",
+                        "outline": "#887364",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed-dim": "#72de5c",
+                        "tertiary-container": "#d0af00",
+                        "tertiary-fixed": "#ffe16d",
+                        "secondary-fixed": "#8dfc75",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#8f4e00",
+                        "primary-fixed-dim": "#ffb77a",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-primary": "#ffb77a",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#705d00",
+                        "on-error": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed": "#012200",
+                        "secondary-container": "#8dfc75",
+                        "primary-container": "#ff9933",
+                        "on-surface-variant": "#554336",
+                        "on-primary-container": "#693800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "md": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "container-margin": "20px",
+                        "gutter": "16px",
+                        "xs": "8px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "display-lg-mobile": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Noto Serif"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .mandala-watermark {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 L100 50 L50 100 L0 50 Z" fill="none" stroke="%238f4e00" stroke-width="1" opacity="0.03"/></svg>');
+            background-repeat: repeat;
+            background-size: 150px;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 mandala-watermark z-0 pointer-events-none"></div>
+<main class="w-full max-w-md mx-auto relative z-10 px-container-margin py-xl flex flex-col h-screen md:h-auto md:min-h-[600px] md:shadow-lg md:rounded-xl md:bg-surface-container-lowest md:border md:border-surface-variant">
+<!-- Header / Navigation -->
+<header class="flex items-center justify-between mb-lg">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="font-headline-sm text-headline-sm-mobile text-on-surface">Financial Habits</h1>
+<span class="font-label-md text-label-md text-on-surface-variant mt-1">Question 4 of 10</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-on-surface active:scale-95 duration-200" title="Exit Survey">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-surface-variant rounded-full mb-xl overflow-hidden relative">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[40%] rounded-full absolute top-0 left-0 transition-all duration-500 ease-out"></div>
+</div>
+<!-- Question Content -->
+<section class="flex-grow flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-lg">How often do you review your monthly budget?</h2>
+<div class="flex flex-col gap-md">
+<!-- Option 1 -->
+<label class="relative flex items-center p-md border border-outline-variant rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input class="peer sr-only" name="survey_q4" type="radio" value="daily"/>
+<div class="w-6 h-6 rounded-full border-2 border-outline peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center mr-md transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity" data-icon="check" data-weight="fill">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface peer-checked:font-semibold">Daily</span>
+</label>
+<!-- Option 2 -->
+<label class="relative flex items-center p-md border border-outline-variant rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input class="peer sr-only" name="survey_q4" type="radio" value="weekly"/>
+<div class="w-6 h-6 rounded-full border-2 border-outline peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center mr-md transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity" data-icon="check" data-weight="fill">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface peer-checked:font-semibold">Weekly</span>
+</label>
+<!-- Option 3 (Selected for preview) -->
+<label class="relative flex items-center p-md border border-primary rounded-lg bg-primary-fixed cursor-pointer hover:bg-primary-fixed-dim transition-colors">
+<input checked="" class="peer sr-only" name="survey_q4" type="radio" value="monthly"/>
+<div class="w-6 h-6 rounded-full border-2 border-primary bg-primary flex items-center justify-center mr-md transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-primary" data-icon="check" data-weight="fill">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Monthly</span>
+</label>
+<!-- Option 4 -->
+<label class="relative flex items-center p-md border border-outline-variant rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input class="peer sr-only" name="survey_q4" type="radio" value="rarely"/>
+<div class="w-6 h-6 rounded-full border-2 border-outline peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center mr-md transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 transition-opacity" data-icon="check" data-weight="fill">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface peer-checked:font-semibold">Rarely or Never</span>
+</label>
+</div>
+</section>
+<!-- Actions -->
+<div class="mt-auto pt-lg pb-container-margin md:pb-0 w-full">
+<button class="w-full h-12 bg-primary hover:bg-surface-tint text-on-primary font-label-md text-label-md rounded-full shadow-md transition-all active:scale-95 flex items-center justify-center gap-xs">
+                Next
+                <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<script>
+        // Simple interaction for radio buttons to demonstrate active states
+        document.querySelectorAll('input[name="survey_q4"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                // Remove active classes from all labels
+                document.querySelectorAll('label').forEach(label => {
+                    label.classList.remove('border-primary', 'bg-primary-fixed');
+                    label.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+                    const icon = label.querySelector('.material-symbols-outlined');
+                    const circle = label.querySelector('div.w-6');
+                    const text = label.querySelector('span.font-body-md');
+                    
+                    circle.classList.remove('border-primary', 'bg-primary');
+                    circle.classList.add('border-outline');
+                    icon.classList.remove('opacity-100');
+                    icon.classList.add('opacity-0');
+                    text.classList.remove('font-semibold');
+                });
+
+                // Add active classes to selected label
+                if(e.target.checked) {
+                    const label = e.target.closest('label');
+                    label.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+                    label.classList.add('border-primary', 'bg-primary-fixed');
+                    
+                    const icon = label.querySelector('.material-symbols-outlined');
+                    const circle = label.querySelector('div.w-6');
+                    const text = label.querySelector('span.font-body-md');
+                    
+                    circle.classList.remove('border-outline');
+                    circle.classList.add('border-primary', 'bg-primary');
+                    icon.classList.remove('opacity-0');
+                    icon.classList.add('opacity-100');
+                    text.classList.add('font-semibold');
+                }
+            });
+        });
+    </script>
+</body></html>

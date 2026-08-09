@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SaffronEarn - Withdraw Funds</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#dbc2b0",
+                        "secondary": "#056e00",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-secondary-container": "#067500",
+                        "on-primary-fixed-variant": "#6d3a00",
+                        "on-tertiary-container": "#514300",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-primary-fixed": "#2e1500",
+                        "surface-variant": "#e1e3e4",
+                        "primary": "#8f4e00",
+                        "on-secondary-fixed-variant": "#035300",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e7e8e9",
+                        "background": "#f8f9fa",
+                        "primary-fixed": "#ffdcc2",
+                        "surface-container-low": "#f3f4f5",
+                        "surface": "#f8f9fa",
+                        "surface-dim": "#d9dadb",
+                        "outline": "#887364",
+                        "on-surface": "#191c1d",
+                        "secondary-fixed-dim": "#72de5c",
+                        "tertiary-container": "#d0af00",
+                        "tertiary-fixed": "#ffe16d",
+                        "secondary-fixed": "#8dfc75",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#8f4e00",
+                        "primary-fixed-dim": "#ffb77a",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-primary": "#ffb77a",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#705d00",
+                        "on-error": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed": "#012200",
+                        "secondary-container": "#8dfc75",
+                        "primary-container": "#ff9933",
+                        "on-surface-variant": "#554336",
+                        "on-primary-container": "#693800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "md": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "container-margin": "20px",
+                        "gutter": "16px",
+                        "xs": "8px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "display-lg-mobile": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Noto Serif"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen pb-24 md:pb-0 md:pt-24 flex flex-col items-center">
+<!-- TopAppBar from JSON (Mobile: fixed top, Web: fixed top) -->
+<header class="w-full top-0 sticky bg-surface-bright dark:bg-surface-dim shadow-[0_4px_12px_rgba(143,78,0,0.08)] z-40 hidden md:flex">
+<div class="flex justify-between items-center px-container-margin py-sm w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary font-bold text-headline-sm" data-icon="currency_rupee">currency_rupee</span>
+<span class="font-headline-sm font-bold text-primary">SaffronEarn</span>
+</div>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors px-3 py-2 rounded-lg" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors px-3 py-2 rounded-lg" href="#">Surveys</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors px-3 py-2 rounded-lg" href="#">Apps</a>
+<!-- Active Navigation mapping to Profile logic since this is a financial settings/action page -->
+<a class="font-label-md text-label-md text-primary hover:bg-surface-container transition-colors px-3 py-2 rounded-lg border-b-2 border-primary" href="#">Profile</a>
+</div>
+<button class="active:scale-95 transition-transform duration-200 p-2 rounded-full hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Mobile Header (Simplified TopAppBar for transactional intent) -->
+<header class="md:hidden w-full top-0 sticky bg-surface-bright shadow-sm z-40 flex justify-between items-center px-container-margin py-sm">
+<button class="text-on-surface-variant p-2 -ml-2 rounded-full hover:bg-surface-container" onclick="history.back()">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="font-headline-sm font-bold text-primary">Withdraw</span>
+<div class="w-10"></div> <!-- Placeholder for balance -->
+</header>
+<main class="w-full max-w-screen-sm mx-auto px-container-margin mt-md flex flex-col gap-lg flex-grow">
+<!-- Balance Card -->
+<section class="bg-primary text-on-primary rounded-xl p-lg shadow-lg relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white opacity-10 rounded-full blur-xl"></div>
+<div class="absolute -left-10 -bottom-10 w-40 h-40 bg-white opacity-5 rounded-full blur-2xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<p class="font-label-md text-label-md opacity-80 uppercase tracking-widest mb-xs">Available Balance</p>
+<div class="flex items-center justify-center gap-xs">
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg">₹1,250.50</span>
+</div>
+</div>
+</section>
+<!-- Withdrawal Methods -->
+<section class="flex flex-col gap-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Select Method</h2>
+<!-- UPI Option (Selected by default) -->
+<label class="block relative cursor-pointer">
+<input checked="" class="peer sr-only" name="withdraw_method" type="radio" value="upi"/>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-md transition-all peer-checked:border-primary peer-checked:shadow-[0_0_0_1px_rgba(143,78,0,1)] peer-checked:bg-primary-fixed-dim/10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">UPI Transfer</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center peer-checked:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 transition-opacity peer-checked:opacity-100 hidden peer-checked:block"></div>
+</div>
+</div>
+<!-- Expanded Content for UPI -->
+<div class="block pt-xs border-t border-surface-variant">
+<label class="font-body-sm text-body-sm text-on-surface-variant block mb-xs" for="upi_id">Enter UPI ID</label>
+<input class="w-full bg-surface-container-lowest border border-outline rounded-lg px-md py-sm font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors h-12" id="upi_id" placeholder="example@ybl" type="text"/>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs opacity-70">Instant transfer. No fees.</p>
+</div>
+</div>
+</label>
+<!-- Bank Transfer Option -->
+<label class="block relative cursor-pointer">
+<input class="peer sr-only" name="withdraw_method" type="radio" value="bank"/>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-md transition-all peer-checked:border-primary peer-checked:shadow-[0_0_0_1px_rgba(143,78,0,1)] peer-checked:bg-primary-fixed-dim/10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface block">Bank Transfer</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">State Bank of India ending in •••• 4021</span>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center"></div>
+</div>
+</div>
+</label>
+<!-- Digital Wallet Option -->
+<label class="block relative cursor-pointer">
+<input class="peer sr-only" name="withdraw_method" type="radio" value="wallet"/>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-md transition-all peer-checked:border-primary peer-checked:shadow-[0_0_0_1px_rgba(143,78,0,1)] peer-checked:bg-primary-fixed-dim/10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Digital Wallet</span>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center"></div>
+</div>
+</div>
+</label>
+</section>
+<!-- Amount to Withdraw -->
+<section class="mt-xs">
+<label class="font-body-sm text-body-sm text-on-surface-variant block mb-xs" for="amount">Withdrawal Amount</label>
+<div class="relative">
+<span class="absolute left-md top-1/2 -translate-y-1/2 font-headline-md text-on-surface-variant">₹</span>
+<input class="w-full bg-surface-container-lowest border border-outline rounded-lg pl-10 pr-md py-sm font-headline-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors h-14" id="amount" type="number" value="1250"/>
+</div>
+<div class="flex justify-between items-center mt-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Min: ₹100</span>
+<button class="font-label-md text-label-md text-primary font-bold uppercase tracking-wide">Withdraw All</button>
+</div>
+</section>
+<!-- Note -->
+<div class="bg-surface-container rounded-lg p-sm flex items-start gap-xs mt-auto mb-lg md:mb-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] mt-0.5" data-icon="info">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Transfers are usually processed within 2-4 hours. Bank transfers may take up to 24 hours on weekends.</p>
+</div>
+<!-- Fixed Bottom Action (Mobile) -->
+<div class="fixed bottom-0 left-0 w-full p-container-margin bg-surface-container-lowest border-t border-surface-variant md:relative md:border-t-0 md:bg-transparent md:p-0 md:mt-md pb-8 md:pb-0 z-30">
+<button class="w-full h-12 bg-secondary text-on-secondary rounded-lg font-body-md font-semibold shadow-md active:scale-95 transition-transform duration-200 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+                Withdraw Now
+            </button>
+</div>
+</main>
+<!-- Suppressed BottomNavBar on mobile as this is a transactional task-focused page -->
+</body></html>

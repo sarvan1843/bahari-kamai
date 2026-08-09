@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SaffronEarn - Spin &amp; Win</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#dbc2b0",
+                      "secondary": "#056e00",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "on-tertiary-fixed": "#221b00",
+                      "on-secondary-container": "#067500",
+                      "on-primary-fixed-variant": "#6d3a00",
+                      "on-tertiary-container": "#514300",
+                      "inverse-surface": "#2e3132",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "on-primary-fixed": "#2e1500",
+                      "surface-variant": "#e1e3e4",
+                      "primary": "#8f4e00",
+                      "on-secondary-fixed-variant": "#035300",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f0f1f2",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e7e8e9",
+                      "background": "#f8f9fa",
+                      "primary-fixed": "#ffdcc2",
+                      "surface-container-low": "#f3f4f5",
+                      "surface": "#f8f9fa",
+                      "surface-dim": "#d9dadb",
+                      "outline": "#887364",
+                      "on-surface": "#191c1d",
+                      "secondary-fixed-dim": "#72de5c",
+                      "tertiary-container": "#d0af00",
+                      "tertiary-fixed": "#ffe16d",
+                      "secondary-fixed": "#8dfc75",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#8f4e00",
+                      "primary-fixed-dim": "#ffb77a",
+                      "surface-bright": "#f8f9fa",
+                      "inverse-primary": "#ffb77a",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#705d00",
+                      "on-error": "#ffffff",
+                      "on-background": "#191c1d",
+                      "surface-container": "#edeeef",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-secondary-fixed": "#012200",
+                      "secondary-container": "#8dfc75",
+                      "primary-container": "#ff9933",
+                      "on-surface-variant": "#554336",
+                      "on-primary-container": "#693800"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "md": "16px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "container-margin": "20px",
+                      "gutter": "16px",
+                      "xs": "8px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "display-lg-mobile": ["Noto Serif"],
+                      "headline-md": ["Noto Serif"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Noto Serif"],
+                      "body-lg": ["Inter"],
+                      "headline-sm": ["Noto Serif"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .spin-wheel {
+            transition: transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .segment {
+            clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+        }
+        /* Mandala Watermark */
+        .bg-watermark {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%238f4e00' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M50 50m-20 0a20,20 0 1,0 40,0a20,20 0 1,0 -40,0' fill='none' stroke='%238f4e00' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M50 10 L50 90 M10 50 L90 50 M21.7 21.7 L78.3 78.3 M21.7 78.3 L78.3 21.7' stroke='%238f4e00' stroke-width='0.5' stroke-opacity='0.05'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-24 md:pb-0 bg-watermark">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-bright dark:bg-surface-dim shadow-[0_4px_12px_rgba(143,78,0,0.08)] z-40">
+<div class="flex justify-between items-center px-container-margin py-sm w-full">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="currency_rupee" data-weight="fill" style="font-variation-settings: 'FILL' 1;">currency_rupee</span>
+<h1 class="font-headline-sm text-headline-sm-mobile font-bold text-primary dark:text-primary-fixed-dim">SaffronEarn</h1>
+</div>
+<button class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors p-xs rounded-full active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-container-margin md:px-xl py-lg max-w-4xl mx-auto flex flex-col items-center">
+<!-- Header Section -->
+<div class="text-center mb-lg">
+<h2 class="font-display-lg-mobile md:font-display-lg text-primary mb-base">Spin &amp; Win</h2>
+<p class="font-body-md text-on-surface-variant">Test your luck and earn exciting rewards daily!</p>
+</div>
+<!-- Wheel Container -->
+<div class="relative w-72 h-72 md:w-96 md:h-96 my-lg flex items-center justify-center">
+<!-- Outer Glow / Shadow -->
+<div class="absolute inset-0 rounded-full shadow-[0_12px_36px_rgba(143,78,0,0.2)] bg-surface-container-lowest border-4 border-primary"></div>
+<!-- The Wheel -->
+<div class="relative w-[95%] h-[95%] rounded-full overflow-hidden spin-wheel border-2 border-outline-variant" id="wheel">
+<!-- SVG Wheel Implementation for crisp segments -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Segments -->
+<!-- Saffron Primary -->
+<path d="M50,50 L100,50 A50,50 0 0,1 85.35,85.35 Z" fill="#8f4e00"></path>
+<text fill="white" font-family="Inter" font-size="6" font-weight="bold" transform="rotate(22.5 50 50) translate(0 0) rotate(-22.5 75 70)" x="75" y="70">₹10</text>
+<!-- Emerald Secondary -->
+<path d="M50,50 L85.35,85.35 A50,50 0 0,1 50,100 Z" fill="#056e00"></path>
+<text fill="white" font-family="Inter" font-size="6" font-weight="bold" transform="rotate(67.5 50 50) translate(0 0) rotate(-67.5 60 90)" x="60" y="90">100 Pts</text>
+<!-- Gold Tertiary Container -->
+<path d="M50,50 L50,100 A50,50 0 0,1 14.64,85.35 Z" fill="#d0af00"></path>
+<text fill="#514300" font-family="Inter" font-size="6" font-weight="bold" transform="rotate(112.5 50 50) translate(0 0) rotate(-112.5 30 90)" x="30" y="90">₹5</text>
+<!-- Primary Container -->
+<path d="M50,50 L14.64,85.35 A50,50 0 0,1 0,50 Z" fill="#ff9933"></path>
+<text fill="#693800" font-family="Inter" font-size="6" font-weight="bold" transform="rotate(157.5 50 50) translate(0 0) rotate(-157.5 15 70)" x="15" y="70">Try Again</text>
+<!-- Secondary Fixed Dim -->
+<path d="M50,50 L0,50 A50,50 0 0,1 14.64,14.64 Z" fill="#72de5c"></path>
+<text fill="#012200" font-family="Inter" font-size="6" font-weight="bold" transform="rotate(202.5 50 50) translate(0 0) rotate(-202.5 15 35)" x="15" y="35">₹20</text>
+<!-- Primary Fixed -->
+<path d="M50,50 L14.64,14.64 A50,50 0 0,1 50,0 Z" fill="#ffdcc2"></path>
+<text fill="#2e1500" font-family="Inter" font-size="6" font-weight="bold" transform="rotate(247.5 50 50) translate(0 0) rotate(-247.5 30 15)" x="30" y="15">50 Pts</text>
+<!-- Tertiary Fixed -->
+<path d="M50,50 L50,0 A50,50 0 0,1 85.35,14.64 Z" fill="#ffe16d"></path>
+<text fill="#221b00" font-family="Inter" font-size="6" font-weight="bold" transform="rotate(292.5 50 50) translate(0 0) rotate(-292.5 60 15)" x="60" y="15">₹50</text>
+<!-- Surface Variant -->
+<path d="M50,50 L85.35,14.64 A50,50 0 0,1 100,50 Z" fill="#e1e3e4"></path>
+<text fill="#554336" font-family="Inter" font-size="6" font-weight="bold" transform="rotate(337.5 50 50) translate(0 0) rotate(-337.5 75 35)" x="75" y="35">Bonus</text>
+</svg>
+</div>
+<!-- Pointer / Indicator -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 z-10">
+<span class="material-symbols-outlined text-primary text-4xl filter drop-shadow-md" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<!-- Center Hub -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-12 h-12 bg-surface-container-lowest rounded-full border-4 border-outline-variant shadow-sm z-10 flex items-center justify-center">
+<div class="w-4 h-4 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Actions & Info -->
+<div class="w-full max-w-sm flex flex-col items-center gap-md bg-surface-container-lowest p-md rounded-xl shadow-lg border border-surface-container">
+<div class="flex items-center justify-between w-full px-sm border-b border-surface-variant pb-sm mb-base">
+<span class="font-body-md text-on-surface-variant">Available Spins:</span>
+<span class="font-headline-sm text-primary">3</span>
+</div>
+<button class="w-full bg-primary text-on-primary font-headline-sm py-sm rounded-lg shadow-md hover:bg-surface-tint active:scale-95 transition-all duration-200 min-h-[48px] flex items-center justify-center gap-xs" id="spinBtn">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+                Spin Now
+            </button>
+<div class="mt-xs text-center flex items-center gap-xs text-secondary bg-secondary-container/20 px-md py-xs rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+<span class="font-label-md">Next Free Spin in: <strong>04:23:10</strong></span>
+</div>
+</div>
+<!-- Recent Winners Bento Grid -->
+<div class="w-full max-w-4xl mt-xl">
+<h3 class="font-headline-sm text-on-surface mb-md px-xs">Recent Winners</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-surface-container flex items-center gap-sm">
+<div class="w-10 h-10 bg-tertiary-container text-on-tertiary-container rounded-full flex items-center justify-center font-headline-sm">R</div>
+<div>
+<p class="font-label-md text-on-surface">Rahul K.</p>
+<p class="font-body-sm text-primary font-bold">₹50</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-surface-container flex items-center gap-sm">
+<div class="w-10 h-10 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center font-headline-sm">P</div>
+<div>
+<p class="font-label-md text-on-surface">Priya S.</p>
+<p class="font-body-sm text-secondary font-bold">100 Pts</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-surface-container flex items-center gap-sm hidden md:flex">
+<div class="w-10 h-10 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center font-headline-sm">A</div>
+<div>
+<p class="font-label-md text-on-surface">Amit M.</p>
+<p class="font-body-sm text-primary font-bold">₹20</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-surface-container flex items-center gap-sm hidden md:flex">
+<div class="w-10 h-10 bg-surface-variant text-on-surface-variant rounded-full flex items-center justify-center font-headline-sm">S</div>
+<div>
+<p class="font-label-md text-on-surface">Sneha V.</p>
+<p class="font-body-sm text-primary font-bold">₹10</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-surface-container-low shadow-[0_-4px_12px_rgba(0,0,0,0.05)] shadow-lg md:hidden">
+<div class="fixed bottom-0 w-full flex justify-around items-center py-xs px-gutter bg-surface-container-lowest dark:bg-surface-container-low">
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed-dim text-on-primary-container dark:text-on-primary-fixed rounded-full px-4 py-1 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="poll">poll</span>
+<span class="font-label-md text-label-md">Surveys</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="install_mobile">install_mobile</span>
+<span class="font-label-md text-label-md">Apps</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</div>
+</nav>
+<!-- Top Navigation (Desktop) - Appended to TopAppBar in a real app, placed here for semantic completeness based on JSON rules -->
+<div class="hidden md:flex justify-center gap-lg py-sm bg-surface-container-lowest border-b border-surface-container sticky top-[64px] z-30">
+<button class="text-primary font-label-md border-b-2 border-primary px-xs pb-xs">Home</button>
+<button class="text-on-surface-variant font-label-md hover:text-primary transition-colors px-xs pb-xs">Surveys</button>
+<button class="text-on-surface-variant font-label-md hover:text-primary transition-colors px-xs pb-xs">Apps</button>
+<button class="text-on-surface-variant font-label-md hover:text-primary transition-colors px-xs pb-xs">Profile</button>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wheel = document.getElementById('wheel');
+            const spinBtn = document.getElementById('spinBtn');
+            let currentRotation = 0;
+            let isSpinning = false;
+
+            spinBtn.addEventListener('click', () => {
+                if (isSpinning) return;
+                isSpinning = true;
+                
+                // Add disabled visual state
+                spinBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                spinBtn.querySelector('span').classList.add('animate-spin');
+
+                // Calculate random rotation (min 5 spins + random segment)
+                const baseSpins = 5 * 360;
+                const randomDegree = Math.floor(Math.random() * 360);
+                currentRotation += baseSpins + randomDegree;
+
+                // Apply rotation
+                wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+                // Reset after spin
+                setTimeout(() => {
+                    isSpinning = false;
+                    spinBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    spinBtn.querySelector('span').classList.remove('animate-spin');
+                    
+                    // Trigger confetti or alert here in a real app
+                    // alert('Congratulations! You won!'); 
+                }, 4000); // Matches transition duration
+            });
+        });
+    </script>
+</body></html>

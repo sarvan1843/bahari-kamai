@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SaffronEarn - Refer &amp; Earn</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#8dfc75",
+                        "on-tertiary-container": "#514300",
+                        "on-surface-variant": "#554336",
+                        "secondary": "#056e00",
+                        "secondary-container": "#8dfc75",
+                        "primary-fixed": "#ffdcc2",
+                        "on-secondary-fixed-variant": "#035300",
+                        "tertiary": "#705d00",
+                        "surface-container-low": "#f3f4f5",
+                        "on-primary-fixed": "#2e1500",
+                        "surface-tint": "#8f4e00",
+                        "on-secondary-fixed": "#012200",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#72de5c",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb77a",
+                        "outline-variant": "#dbc2b0",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-container": "#067500",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "on-primary-fixed-variant": "#6d3a00",
+                        "inverse-surface": "#2e3132",
+                        "on-background": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#ff9933",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-fixed-dim": "#ffb77a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-primary-container": "#693800",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffe16d",
+                        "primary": "#8f4e00",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary-fixed": "#221b00",
+                        "outline": "#887364",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#d0af00",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-dim": "#d9dadb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xs": "8px",
+                        "sm": "12px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Noto Serif"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Noto Serif"],
+                        "display-lg-mobile": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface-bright shadow-[0_4px_12px_rgba(143,78,0,0.08)] z-40">
+<div class="flex justify-between items-center px-container-margin py-sm w-full">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="currency_rupee">currency_rupee</span>
+<span class="font-headline-sm-mobile font-bold text-primary">SaffronEarn</span>
+</div>
+<button class="active:scale-95 transition-transform duration-200 hover:bg-surface-container transition-colors rounded-full p-xs text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-container-margin py-lg max-w-md mx-auto">
+<!-- Hero Section -->
+<section class="text-center mb-lg">
+<div class="w-full h-48 rounded-xl bg-surface-container-high mb-md overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A vibrant, modern flat vector illustration showing two friends exchanging digital coins and smiling. The illustration uses a warm color palette dominated by royal saffron and emerald green accents against a crisp white background, styled with modern Indian aesthetic motifs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuL-uZVj_f_G23tYwkbAajT8lTG5HLLBj4fhek4I8VVWuiuxvzkN2yaf5vuIPUqmJGcXzNBzZ0X82D0SfZ2SbKQDnLRElc7qL8eRLtxtmaMQ2Q5Adq3pjdtysKnwxJUE4miHllZi4QSvUNSXIrra8nQyaSIzgbUDqo7ARh_M6uPxFf8bwl_5_bdxrEUirbKpg4f9nEihnNQJ2iQvvwaMLJey9s2KkUJ-fPbzgVymQ_UCPxL9tnFK0"/>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-background mb-xs">Refer &amp; Earn</h1>
+<p class="font-body-lg text-body-lg text-primary font-bold">Earn ₹500 per invite</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-base">Invite your friends to SaffronEarn and start earning together.</p>
+</section>
+<!-- Referral Code Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_8px_24px_rgba(143,78,0,0.08)] p-md mb-lg border border-outline-variant">
+<p class="font-label-md text-label-md text-on-surface-variant mb-sm uppercase">Your Referral Code</p>
+<div class="flex items-center justify-between bg-surface-container rounded-lg p-sm border border-outline-variant focus-within:border-primary transition-colors">
+<span class="font-headline-sm text-headline-sm tracking-widest text-on-background" id="ref-code">SAFFRON2024</span>
+<button class="flex items-center gap-base text-primary font-label-md text-label-md hover:text-primary-container active:scale-95 transition-all p-xs rounded-md" onclick="copyCode()">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+                    COPY
+                </button>
+</div>
+</section>
+<!-- Share Actions -->
+<section class="grid grid-cols-2 gap-sm mb-xl">
+<button class="w-full h-12 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md flex items-center justify-center gap-xs shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined fill" data-icon="share">share</span>
+                Share on WhatsApp
+            </button>
+<button class="w-full h-12 bg-surface-container-lowest text-primary border-2 border-primary rounded-lg font-label-md text-label-md flex items-center justify-center gap-xs shadow-sm active:scale-95 transition-transform hover:bg-surface-container">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+                More Options
+            </button>
+</section>
+<!-- Decorative Divider -->
+<div class="flex items-center justify-center py-xl relative opacity-40">
+<div class="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-outline to-transparent"></div>
+<span class="material-symbols-outlined bg-background px-sm text-outline z-10" data-icon="all_inclusive">all_inclusive</span>
+</div>
+<!-- How it Works -->
+<section>
+<h2 class="font-headline-md text-headline-md text-on-background mb-md">How it works</h2>
+<div class="relative pl-6">
+<!-- Vertical Line -->
+<div class="absolute left-3 top-2 bottom-6 w-0.5 bg-surface-container-highest"></div>
+<!-- Step 1 -->
+<div class="relative mb-lg flex items-start gap-md">
+<div class="absolute -left-6 bg-primary-container w-6 h-6 rounded-full flex items-center justify-center z-10 border-4 border-background">
+<span class="font-label-md text-[10px] text-on-primary-container font-bold">1</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-body-md font-bold text-on-background">Invite Friends</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Share your unique code via WhatsApp or social media.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative mb-lg flex items-start gap-md">
+<div class="absolute -left-6 bg-surface-container-highest w-6 h-6 rounded-full flex items-center justify-center z-10 border-4 border-background">
+<span class="font-label-md text-[10px] text-on-surface-variant font-bold">2</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-body-md font-bold text-on-background">They Join</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your friend signs up using your referral code.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-start gap-md">
+<div class="absolute -left-6 bg-secondary-container w-6 h-6 rounded-full flex items-center justify-center z-10 border-4 border-background">
+<span class="font-label-md text-[10px] text-on-secondary-container font-bold">3</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-body-md font-bold text-secondary">You Earn</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Get ₹500 credited to your wallet instantly upon their first task completion.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest shadow-[0_-4px_12px_rgba(0,0,0,0.05)] md:hidden">
+<div class="flex justify-around items-center py-xs px-gutter">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="poll">poll</span>
+<span class="font-label-md text-label-md mt-1">Surveys</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-150 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="install_mobile">install_mobile</span>
+<span class="font-label-md text-label-md mt-1">Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined fill" data-icon="person">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</div>
+</nav>
+<script>
+        function copyCode() {
+            const code = document.getElementById('ref-code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = event.currentTarget;
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = `<span class="material-symbols-outlined text-[18px]" data-icon="check">check</span>COPIED`;
+                btn.classList.add('text-secondary');
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.classList.remove('text-secondary');
+                }, 2000);
+            });
+        }
+    </script>
+</body></html>

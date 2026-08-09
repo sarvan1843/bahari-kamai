@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": "86964675-1543-44de-b7e9-c4c173e1249b",
+      "name": "Rahul Verma",
+      "phone": "9876543210",
+      "passwordHash": "$2a$10$zN6vQMnQrKWJwzLunfKQsO02XtwL7t8Ueci4K8WvCKmKKHIIIN1UG",
+      "createdAt": "2026-08-09T05:37:33.094Z"
+    }
+  ],
+  "wallets": {
+    "86964675-1543-44de-b7e9-c4c173e1249b": 40
+  },
+  "transactions": [
+    {
+      "id": "8a834487-22d6-4f8c-8514-96aa901f6738",
+      "userId": "86964675-1543-44de-b7e9-c4c173e1249b",
+      "title": "Shopping Survey Completion",
+      "amount": 70,
+      "type": "earning",
+      "status": "confirmed",
+      "externalId": "sim-1786253856002-888",
+      "createdAt": "2026-08-09T05:37:36.002Z"
+    },
+    {
+      "id": "f41f1efd-4448-4ef4-9abe-501fca1b74f1",
+      "userId": "86964675-1543-44de-b7e9-c4c173e1249b",
+      "title": "Mobile Survey Completion",
+      "amount": 70,
+      "type": "earning",
+      "status": "confirmed",
+      "externalId": "sim-1786253859267-724",
+      "createdAt": "2026-08-09T05:37:39.267Z"
+    },
+    {
+      "id": "96069fcb-308c-4193-9c50-53ea74d4c9ee",
+      "userId": "86964675-1543-44de-b7e9-c4c173e1249b",
+      "title": "Withdrawal Request",
+      "amount": -100,
+      "type": "withdrawal",
+      "status": "completed",
+      "externalId": "89bc1a68-44ac-4ee9-9374-7f05dc3f8fed",
+      "createdAt": "2026-08-09T05:37:42.248Z"
+    }
+  ],
+  "withdrawals": [
+    {
+      "id": "89bc1a68-44ac-4ee9-9374-7f05dc3f8fed",
+      "userId": "86964675-1543-44de-b7e9-c4c173e1249b",
+      "amount": 100,
+      "upiId": "rahul@upi",
+      "status": "completed",
+      "createdAt": "2026-08-09T05:37:42.248Z",
+      "updatedAt": "2026-08-09T05:37:48.618Z"
+    }
+  ],
+  "processedPostbacks": [
+    "sim-1786253856002-888",
+    "sim-1786253859267-724"
+  ]
+}

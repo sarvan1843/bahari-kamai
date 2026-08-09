@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saffron Wealth - Surveys</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#edeeef",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#ff9933",
+                        "tertiary": "#705d00",
+                        "on-tertiary-fixed": "#221b00",
+                        "secondary-fixed-dim": "#72de5c",
+                        "on-secondary-fixed-variant": "#035300",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#8f4e00",
+                        "primary-fixed-dim": "#ffb77a",
+                        "surface-bright": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "on-background": "#191c1d",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#056e00",
+                        "surface": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#012200",
+                        "secondary-container": "#8dfc75",
+                        "secondary-fixed": "#8dfc75",
+                        "on-primary-container": "#693800",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-container": "#514300",
+                        "inverse-primary": "#ffb77a",
+                        "outline-variant": "#dbc2b0",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-surface": "#2e3132",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary": "#8f4e00",
+                        "primary-fixed": "#ffdcc2",
+                        "surface-variant": "#e1e3e4",
+                        "on-surface-variant": "#554336",
+                        "on-primary-fixed": "#2e1500",
+                        "on-secondary-container": "#067500",
+                        "outline": "#887364",
+                        "on-primary-fixed-variant": "#6d3a00",
+                        "tertiary-container": "#d0af00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "sm": "12px",
+                        "md": "16px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "xs": "8px",
+                        "container-margin": "20px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-md": ["Noto Serif", "serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "display-lg-mobile": ["Noto Serif", "serif"],
+                        "display-lg": ["Noto Serif", "serif"],
+                        "headline-sm": ["Noto Serif", "serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-headline-md, .font-display-lg, .font-headline-sm { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined { font-family: 'Material Symbols Outlined', sans-serif !important; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(143, 78, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pt-16 pb-20">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface-bright shadow-[0_4px_12px_rgba(143,78,0,0.08)]">
+<div class="flex justify-between items-center px-container-margin py-sm w-full">
+<div class="flex items-center gap-2 active:scale-95 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">currency_rupee</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">SaffronEarn</span>
+</div>
+<button class="active:scale-95 transition-transform duration-200 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full p-2">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="flex-grow px-container-margin py-lg space-y-lg max-w-7xl mx-auto w-full">
+<!-- Header & Filters -->
+<div class="space-y-md">
+<h1 class="font-headline-md text-headline-md text-on-background">Available Surveys</h1>
+<div class="flex gap-sm overflow-x-auto pb-2 scrollbar-hide -mx-container-margin px-container-margin md:mx-0 md:px-0">
+<button class="whitespace-nowrap px-md py-2 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md active:scale-95 transition-transform">
+                    Newest
+                </button>
+<button class="whitespace-nowrap px-md py-2 rounded-full border border-outline bg-transparent text-on-surface-variant font-label-md text-label-md active:scale-95 transition-transform hover:bg-surface-container">
+                    High Reward
+                </button>
+<button class="whitespace-nowrap px-md py-2 rounded-full border border-outline bg-transparent text-on-surface-variant font-label-md text-label-md active:scale-95 transition-transform hover:bg-surface-container">
+                    Shortest
+                </button>
+</div>
+</div>
+<!-- Surveys Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Survey Card 1 -->
+<div class="glass-card rounded-xl p-md flex flex-col justify-between space-y-md active:scale-[0.98] transition-transform cursor-pointer group hover:shadow-lg">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant font-label-md text-label-md text-[10px] uppercase">Finance</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Investment Habits</h3>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md bg-secondary-container px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>₹85</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>12 mins</span>
+</div>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        Start <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Survey Card 2 -->
+<div class="glass-card rounded-xl p-md flex flex-col justify-between space-y-md active:scale-[0.98] transition-transform cursor-pointer group hover:shadow-lg">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant font-label-md text-label-md text-[10px] uppercase">Lifestyle</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Daily Commute</h3>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md bg-secondary-container px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>₹45</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>5 mins</span>
+</div>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        Start <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Survey Card 3 -->
+<div class="glass-card rounded-xl p-md flex flex-col justify-between space-y-md active:scale-[0.98] transition-transform cursor-pointer group hover:shadow-lg">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant font-label-md text-label-md text-[10px] uppercase">Tech</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Gadget Usage</h3>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md bg-secondary-container px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>₹120</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>20 mins</span>
+</div>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        Start <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Survey Card 4 -->
+<div class="glass-card rounded-xl p-md flex flex-col justify-between space-y-md active:scale-[0.98] transition-transform cursor-pointer group hover:shadow-lg">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant font-label-md text-label-md text-[10px] uppercase">FMCG</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Beverage Preferences</h3>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-md text-label-md bg-secondary-container px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>₹30</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-1 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+<span>3 mins</span>
+</div>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        Start <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center py-xs px-gutter">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-150 rounded-lg">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">poll</span>
+<span class="font-label-md text-label-md">Surveys</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-150 rounded-lg">
+<span class="material-symbols-outlined">install_mobile</span>
+<span class="font-label-md text-label-md">Apps</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-150 rounded-lg">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+<!-- Desktop Sidebar Placeholder for Navigation -> hidden on mobile -->
+<nav class="hidden md:flex fixed left-0 top-16 h-full w-64 bg-surface-container-lowest border-r border-surface-variant flex-col py-lg px-md gap-sm shadow-sm z-30">
+<button class="flex items-center gap-md text-on-surface-variant p-md hover:bg-surface-container-high rounded-xl transition-colors text-left w-full">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md text-body-md font-semibold">Home</span>
+</button>
+<button class="flex items-center gap-md bg-primary-container text-on-primary-container p-md rounded-xl transition-colors text-left w-full">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">poll</span>
+<span class="font-body-md text-body-md font-semibold">Surveys</span>
+</button>
+<button class="flex items-center gap-md text-on-surface-variant p-md hover:bg-surface-container-high rounded-xl transition-colors text-left w-full">
+<span class="material-symbols-outlined">install_mobile</span>
+<span class="font-body-md text-body-md font-semibold">Apps</span>
+</button>
+<button class="flex items-center gap-md text-on-surface-variant p-md hover:bg-surface-container-high rounded-xl transition-colors text-left w-full">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md text-body-md font-semibold">Profile</span>
+</button>
+</nav>
+<!-- Adjust main padding for desktop sidebar -->
+<style>
+        @media (min-width: 768px) {
+            main {
+                padding-left: calc(16rem + 20px); /* w-64 + container-margin */
+            }
+        }
+    </style>
+</body></html>

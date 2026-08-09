@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kama₹</string>
+    <string name="title_activity_main">Kama₹</string>
+    <string name="package_name">com.kama.rupee</string>
+    <string name="custom_url_scheme">com.kama.rupee</string>
+</resources>

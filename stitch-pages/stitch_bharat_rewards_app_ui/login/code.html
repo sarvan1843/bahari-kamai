@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - SaffronEarn</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#8dfc75",
+                    "on-tertiary-container": "#514300",
+                    "on-surface-variant": "#554336",
+                    "secondary": "#056e00",
+                    "secondary-container": "#8dfc75",
+                    "primary-fixed": "#ffdcc2",
+                    "on-secondary-fixed-variant": "#035300",
+                    "tertiary": "#705d00",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary-fixed": "#2e1500",
+                    "surface-tint": "#8f4e00",
+                    "on-secondary-fixed": "#012200",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#72de5c",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#ffb77a",
+                    "outline-variant": "#dbc2b0",
+                    "surface-variant": "#e1e3e4",
+                    "on-secondary-container": "#067500",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "on-primary-fixed-variant": "#6d3a00",
+                    "inverse-surface": "#2e3132",
+                    "on-background": "#191c1d",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#ff9933",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-fixed-dim": "#ffb77a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "on-primary-container": "#693800",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffe16d",
+                    "primary": "#8f4e00",
+                    "background": "#f8f9fa",
+                    "surface-bright": "#f8f9fa",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-tertiary-fixed": "#221b00",
+                    "outline": "#887364",
+                    "surface": "#f8f9fa",
+                    "tertiary-container": "#d0af00",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#191c1d",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "surface-dim": "#d9dadb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "lg": "24px",
+                    "gutter": "16px",
+                    "xs": "8px",
+                    "sm": "12px",
+                    "xl": "32px",
+                    "base": "4px",
+                    "container-margin": "20px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Noto Serif"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Noto Serif"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Noto Serif"],
+                    "display-lg-mobile": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .mandala-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c16.569 0 30 13.431 30 30S46.569 60 30 60 0 46.569 0 30 13.431 0 30 0zm0 5c13.807 0 25 11.193 25 25S43.807 55 30 55 5 43.807 5 30 16.193 5 30 5zm0 10c8.284 0 15 6.716 15 15s-6.716 15-15 15-15-6.716-15-15 6.716-15 15-15z' fill='%238f4e00' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col mandala-pattern md:justify-center">
+<!-- Top Navigation (Mobile) -->
+<header class="w-full top-0 sticky bg-surface-bright shadow-sm flex justify-between items-center px-container-margin py-sm md:hidden z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="currency_rupee">currency_rupee</span>
+<span class="font-headline-sm text-headline-sm-mobile font-bold text-primary">SaffronEarn</span>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95 duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col justify-center items-center px-container-margin py-lg md:py-0 w-full max-w-md mx-auto">
+<!-- Hero Section -->
+<div class="text-center mb-xl w-full">
+<div class="hidden md:flex justify-center items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="currency_rupee">currency_rupee</span>
+<h1 class="font-display-lg text-display-lg font-bold text-primary">SaffronEarn</h1>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-sm">Welcome Back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Sign in to continue your earning journey.</p>
+</div>
+<!-- Login Form Card -->
+<div class="bg-surface-container-lowest w-full rounded-xl p-lg shadow-[0_4px_12px_rgba(143,78,0,0.08)]">
+<form class="space-y-lg">
+<!-- Mobile Number / Email Input -->
+<div class="relative">
+<label class="absolute -top-2.5 left-3 bg-surface-container-lowest px-1 font-label-md text-label-md text-on-surface-variant" for="username">Mobile Number or Email</label>
+<input class="w-full bg-transparent border border-outline-variant rounded-lg px-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="username" placeholder="Enter your detail" type="text"/>
+</div>
+<!-- Password Input -->
+<div class="relative">
+<label class="absolute -top-2.5 left-3 bg-surface-container-lowest px-1 font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<input class="w-full bg-transparent border border-outline-variant rounded-lg px-md py-sm font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="password" placeholder="Enter password" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+<!-- Forgot Password -->
+<div class="flex justify-end">
+<a class="font-label-md text-label-md text-primary hover:text-on-primary-container transition-colors" href="#">Forgot Password?</a>
+</div>
+<!-- Login Button -->
+<button class="w-full min-h-[48px] bg-gradient-to-r from-primary to-surface-tint text-on-primary font-label-md text-label-md rounded-lg shadow-md hover:shadow-lg active:scale-95 transition-all duration-200" type="submit">
+                    Login
+                </button>
+</form>
+<!-- Divider -->
+<div class="my-xl relative flex items-center justify-center">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant"></div>
+</div>
+<div class="relative bg-surface-container-lowest px-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-sm" data-icon="local_florist">local_florist</span>
+</div>
+</div>
+<!-- Social Login -->
+<div class="space-y-md">
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant">Or login with</p>
+<button class="w-full min-h-[48px] border border-outline-variant bg-transparent rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container transition-colors active:scale-95 duration-200" type="button">
+<svg class="w-5 h-5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="font-label-md text-label-md text-on-surface">Continue with Google</span>
+</button>
+</div>
+<div class="mt-lg text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Don't have an account? <a class="text-primary font-bold hover:underline" href="#">Sign up</a></p>
+</div>
+</div>
+</main>
+</body></html>
