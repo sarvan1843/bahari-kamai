@@ -164,6 +164,109 @@ export const api = {
     return [];
   },
 
+  // --- Daily Rewards ---
+  getDailyRewardStatus: async () => {
+    const user = auth.currentUser;
+    if (!user) throw new Error("Not logged in");
+
+    const userDoc = await getDoc(doc(db, "users", user.uid));
+    const data = userDoc.data() || {};
+    const lastClaimedStr = data.lastDailyRewardDate || ""; // "YYYY-MM-DD"
+    const streak = data.dailyRewardStreak || 0;
+
+    const todayStr = new Date().toISOString().split('T')[0];
+    
+    // If last claimed was yesterday, keep streak. If older, reset to 0.
+    let currentStreak = streak;
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+    if (lastClaimedStr !== todayStr && lastClaimedStr !== yesterdayStr) {
+      currentStreak = 0;
+    }
+    // Max streak logic (loops back to 0 after 7 days)
+    if (currentStreak >= 7) {
+        currentStreak = 0;
+    }
+
+    const canClaim = lastClaimedStr !== todayStr;
+    
+    return {
+      streak: currentStreak,
+      lastClaimedDate: lastClaimedStr,
+      canClaim
+    };
+  },
+
+  claimDailyReward: async () => {
+    const user = auth.currentUser;
+    if (!user) throw new Error("Not logged in");
+
+    const DAILY_REWARDS = [10, 20, 50, 80, 120, 200, 500];
+
+    try {
+      return await runTransaction(db, async (transaction) => {
+        const userRef = doc(db, "users", user.uid);
+        const walletRef = doc(db, "wallets", user.uid);
+        
+        const userDoc = await transaction.get(userRef);
+        const walletDoc = await transaction.get(walletRef);
+
+        const userData = userDoc.exists() ? userDoc.data() : {};
+        const walletData = walletDoc.exists() ? walletDoc.data() : { balance: 0 };
+
+        const lastClaimedStr = userData.lastDailyRewardDate || "";
+        const streak = userData.dailyRewardStreak || 0;
+        const todayStr = new Date().toISOString().split('T')[0];
+
+        if (lastClaimedStr === todayStr) {
+          throw new Error("Already claimed today!");
+        }
+
+        let currentStreak = streak;
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+        if (lastClaimedStr !== yesterdayStr && lastClaimedStr !== "") {
+          currentStreak = 0; // Reset streak if missed a day
+        }
+        if (currentStreak >= 7) {
+            currentStreak = 0;
+        }
+
+        const rewardAmount = DAILY_REWARDS[currentStreak];
+
+        // Update User Doc
+        transaction.update(userRef, {
+          lastDailyRewardDate: todayStr,
+          dailyRewardStreak: currentStreak + 1
+        });
+
+        // Update Wallet Doc
+        transaction.update(walletRef, {
+          balance: walletData.balance + rewardAmount
+        });
+
+        // Add Transaction Ledger
+        const txRef = doc(collection(db, "transactions"));
+        transaction.set(txRef, {
+          userId: user.uid,
+          title: `Daily Reward (Day ${currentStreak + 1})`,
+          amount: rewardAmount,
+          type: "credit",
+          status: "completed",
+          createdAt: serverTimestamp()
+        });
+
+        return { success: true, rewardAmount, newStreak: currentStreak + 1 };
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
+
   // --- Admin ---
   adminGetStats: async () => { return {}; },
   adminGetWithdrawals: async () => { return []; }
