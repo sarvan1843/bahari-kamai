@@ -96,8 +96,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ 
       error: 'Internal server error', 
       details: error.message,
-      pkLength: debugPk.length,
-      pkStart: debugPk.substring(0, 10),
+      debugBase64: Buffer.from(debugPk).toString('base64'),
       stack: error.stack
     });
   }
