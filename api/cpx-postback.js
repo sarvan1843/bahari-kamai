@@ -14,19 +14,23 @@ export default async function handler(req, res) {
   try {
     if (!db) {
       if (!getApps().length) {
-        // Strip out literal quotes if Vercel added them during paste
-        let pk = process.env.FIREBASE_PRIVATE_KEY || '';
+        // Strip out literal quotes if Vercel added them during paste, accounting for whitespace
+        let pk = (process.env.FIREBASE_PRIVATE_KEY || '').trim();
         if (pk.startsWith('"') && pk.endsWith('"')) {
+          pk = pk.substring(1, pk.length - 1);
+        } else if (pk.startsWith("'") && pk.endsWith("'")) {
           pk = pk.substring(1, pk.length - 1);
         }
         
+        // Sometimes Vercel parses \n literally, sometimes it doesn't. 
+        // We ensure all literal \n are converted to real newlines.
+        pk = pk.replace(/\\n/g, '\n');
         initializeApp({
           credential: cert({
-            projectId: process.env.FIREBASE_PROJECT_ID,
-            clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-            privateKey: pk.replace(/\\n/g, '\n')
+            projectId: (process.env.FIREBASE_PROJECT_ID || '').trim(),
+            clientEmail: (process.env.FIREBASE_CLIENT_EMAIL || '').trim(),
+            privateKey: pk
           })
-        });
       }
       db = getFirestore();
     }
