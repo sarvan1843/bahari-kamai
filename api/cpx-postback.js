@@ -1,4 +1,5 @@
-import admin from 'firebase-admin';
+import { initializeApp, getApps, cert } from 'firebase-admin/app';
+import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 import md5 from 'md5';
 
 // Lazy initialize db
@@ -12,22 +13,22 @@ export default async function handler(req, res) {
 
   try {
     if (!db) {
-      if (!admin.apps.length) {
+      if (!getApps().length) {
         // Strip out literal quotes if Vercel added them during paste
         let pk = process.env.FIREBASE_PRIVATE_KEY || '';
         if (pk.startsWith('"') && pk.endsWith('"')) {
           pk = pk.substring(1, pk.length - 1);
         }
         
-        admin.initializeApp({
-          credential: admin.credential.cert({
+        initializeApp({
+          credential: cert({
             projectId: process.env.FIREBASE_PROJECT_ID,
             clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
             privateKey: pk.replace(/\\n/g, '\n')
           })
         });
       }
-      db = admin.firestore();
+      db = getFirestore();
     }
 
     const { 
@@ -62,7 +63,7 @@ export default async function handler(req, res) {
     
     // We use a transaction or FieldValue.increment to safely add the money
     await walletRef.set({
-      balance: admin.firestore.FieldValue.increment(amount)
+      balance: FieldValue.increment(amount)
     }, { merge: true });
 
     // 2. Add a record to the user's ledger/history
@@ -73,7 +74,7 @@ export default async function handler(req, res) {
       type: 'CREDIT',
       source: 'CPX_RESEARCH_SURVEY',
       transactionId: trans_id,
-      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      timestamp: FieldValue.serverTimestamp(),
       description: `Survey Completion (ID: ${trans_id})`
     });
 
