@@ -91,10 +91,13 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true, message: 'Postback processed successfully' });
 
   } catch (error) {
+    let debugPk = process.env.FIREBASE_PRIVATE_KEY || '';
     console.error('Postback processing error:', error);
     return res.status(500).json({ 
       error: 'Internal server error', 
       details: error.message,
+      pkLength: debugPk.length,
+      pkStart: debugPk.substring(0, 10),
       stack: error.stack
     });
   }
