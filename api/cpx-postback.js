@@ -25,12 +25,14 @@ export default async function handler(req, res) {
         // Sometimes Vercel parses \n literally, sometimes it doesn't. 
         // We ensure all literal \n are converted to real newlines.
         pk = pk.replace(/\\n/g, '\n');
+        
         initializeApp({
           credential: cert({
             projectId: (process.env.FIREBASE_PROJECT_ID || '').trim(),
             clientEmail: (process.env.FIREBASE_CLIENT_EMAIL || '').trim(),
             privateKey: pk
           })
+        });
       }
       db = getFirestore();
     }
