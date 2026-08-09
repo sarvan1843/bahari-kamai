@@ -26,6 +26,13 @@ export default async function handler(req, res) {
         // We ensure all literal \n are converted to real newlines.
         pk = pk.replace(/\\n/g, '\n');
         
+        // If the user pasted into a single-line box, newlines might be spaces
+        if (!pk.includes('\n')) {
+          pk = pk.replace(/ /g, '\n');
+          pk = pk.replace('-----\nBEGIN\nPRIVATE\nKEY-----', '-----BEGIN PRIVATE KEY-----');
+          pk = pk.replace('-----\nEND\nPRIVATE\nKEY-----', '-----END PRIVATE KEY-----');
+        }
+        
         initializeApp({
           credential: cert({
             projectId: (process.env.FIREBASE_PROJECT_ID || '').trim(),
