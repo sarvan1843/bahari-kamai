@@ -152,7 +152,7 @@ export const api = {
     // We will move this to Vercel backend later to protect the secret
     const ext_user_id = user.uid;
     const appId = "35215";
-    const hashSecret = "7c591667408b4f6d8c6491ccf86442d0";
+    const hashSecret = "5mL3nuvwnkTX16CJzym49H43fjrUctLe";
     const secureHash = md5(ext_user_id + "-" + hashSecret);
     
     const url = `https://offers.cpx-research.com/index.php?app_id=${appId}&ext_user_id=${ext_user_id}&secure_hash=${secureHash}`;
