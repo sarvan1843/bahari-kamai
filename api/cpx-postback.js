@@ -82,6 +82,10 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Postback processing error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(500).json({ 
+      error: 'Internal server error', 
+      details: error.message,
+      stack: error.stack
+    });
   }
 }
