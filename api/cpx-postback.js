@@ -1,23 +1,8 @@
 import admin from 'firebase-admin';
 import md5 from 'md5';
 
-// Initialize Firebase Admin if it hasn't been initialized yet
-if (!admin.apps.length) {
-  try {
-    admin.initializeApp({
-      credential: admin.credential.cert({
-        projectId: process.env.FIREBASE_PROJECT_ID,
-        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        // Replace escaped newlines with actual newlines in private key
-        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n')
-      })
-    });
-  } catch (error) {
-    console.error('Firebase admin initialization error', error.stack);
-  }
-}
-
-const db = admin.firestore();
+// Lazy initialize db
+let db = null;
 
 export default async function handler(req, res) {
   // CPX sends a GET request for postbacks
@@ -26,6 +11,25 @@ export default async function handler(req, res) {
   }
 
   try {
+    if (!db) {
+      if (!admin.apps.length) {
+        // Strip out literal quotes if Vercel added them during paste
+        let pk = process.env.FIREBASE_PRIVATE_KEY || '';
+        if (pk.startsWith('"') && pk.endsWith('"')) {
+          pk = pk.substring(1, pk.length - 1);
+        }
+        
+        admin.initializeApp({
+          credential: admin.credential.cert({
+            projectId: process.env.FIREBASE_PROJECT_ID,
+            clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+            privateKey: pk.replace(/\\n/g, '\n')
+          })
+        });
+      }
+      db = admin.firestore();
+    }
+
     const { 
       trans_id, 
       ext_user_id, 
@@ -48,7 +52,8 @@ export default async function handler(req, res) {
     }
 
     const amount = parseFloat(amount_local);
-    if (isNaN(amount) || amount <= 0) {
+    // Note: CPX test uses amount_local=0.0000, so we allow 0 for tests to succeed
+    if (isNaN(amount) || amount < 0) {
       return res.status(400).json({ error: 'Invalid amount' });
     }
 
