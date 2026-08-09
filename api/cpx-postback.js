@@ -31,10 +31,12 @@ export default async function handler(req, res) {
 
     const { 
       trans_id, 
-      ext_user_id, 
+      user_id, 
       amount_local, 
       secure_hash 
     } = req.query;
+
+    const ext_user_id = user_id || req.query.ext_user_id;
 
     if (!trans_id || !ext_user_id || !amount_local || !secure_hash) {
       return res.status(400).json({ error: 'Missing required parameters' });
